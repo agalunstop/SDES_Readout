@@ -9,4 +9,5 @@ def click(image_name="photo.bmp"):
 	pygame.camera.quit()
 	cam.stop()
 
-click()
+import sys
+click(sys.argv[1])
