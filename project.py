@@ -7,7 +7,7 @@ import Image
 import pytesseract
 import pyttsx
 import sys
-import cv2
+#import cv2
 ##for cv2 import *
 ###Code for acquiring image from camera
 
@@ -17,14 +17,14 @@ import cv2
 ###Code_Segment2##OCR_Neeraj
 #####Opening the image and extracting text and dumping it to myfile.txt
 fo=open("myfile.txt","rw+")
-fo.write(pytesseract.image_to_string(Image.open('neeraj.jpg')))
+fo.write(pytesseract.image_to_string(Image.open('text.bmp')))
 fo.close()
 
 
 ####Code_Segment2## Text read out
 
 
-engine = pyttsx.init()
-for line in open("myfile.txt"):
-    engine.say(line)
-engine.runAndWait()
+#engine = pyttsx.init()
+#for line in open("myfile.txt"):
+#    engine.say(line)
+#engine.runAndWait()
