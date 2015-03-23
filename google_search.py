@@ -1,6 +1,5 @@
 ##Author: Sonal Gupta & Neeraj Babu
-##Python Code to extraxt out meaning of a word from google
-##Can be also used to figure out other details via google search
+##Can be also used to figure out details via google search
 ## urllib of python, 
 
 
@@ -8,8 +7,6 @@
 import urllib, simplejson
  
 def Search_Function(query, number,meaning):
-    if meaning == 1:
-        query = query + "meaning"
     query = urllib.urlencode({'q':query})
     index = number//4
     #fo=open("google_search.txt","rw+")
@@ -22,7 +19,7 @@ def Search_Function(query, number,meaning):
         for item in results:
             if number == 0:
                 break
-            print item['title'] + ": " + item['content']
-          #  fo.write(['title'] + ": " + item['content'])
+            print item['content']
+            fo.write(str(item['content']))
             number -= 1
-	#fo.close()
+	fo.close()
