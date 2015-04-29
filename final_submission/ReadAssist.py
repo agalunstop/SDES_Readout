@@ -40,6 +40,8 @@ class ReadAssist(ImagetoText,Click,ReadText,ImageSearch,DisplayImage,WikiRead,Me
 	def GetMeaning(self, text):
 		Meaning.meaning_function(self,text)
 	def __del__(self): ##destructor of class : Clean up the object and the files generated
+		DisplayImage.__del__(self)
+		ReadText.__del__(self)
 		pass
 
 

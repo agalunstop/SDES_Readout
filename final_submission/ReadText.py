@@ -10,8 +10,9 @@ class ReadText():
 		for line in open(file_name):
     			self.engine.say(line)
 		self.engine.runAndWait()
+		self.engine.stop()
 	def __del__(self):
-		pass
+		del self.engine
 
 ###Test for ReadText
 

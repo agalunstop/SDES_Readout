@@ -20,4 +20,3 @@ class Click():
 		os.remove(self.image_name)
 
 ###Test for Click()
-

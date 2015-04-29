@@ -29,11 +29,11 @@ class UnderlinedWordExtract():
 		self.img_lined = np.copy(self.img)
 		self.lines = cv2.HoughLinesP(self.binar,1,np.pi/180,\
 			threshold,minLineLength=minLineLength,maxLineGap=maxLineGap)
-		print "lines:"
+		#print "lines:"
 		i = 0
 		for x1,y1,x2,y2 in self.lines[0]:
 			i = i+1
-			print (x1,y1)
+		#	print (x1,y1)
 #			cv2.circle(self.img_lined,(x1,y1),i,(0,255,0))
 #			cv2.line(self.img_lined,(x1,y1),(x2,y2),(0,255,0),2)
 
@@ -59,7 +59,7 @@ class UnderlinedWordExtract():
 		'''Draw rectangle around detected contours'''
 		self.underlined_coord = []
 		self.img_contoured = np.copy(self.img)
-		print "contours:"
+		#print "contours:"
 		for i in range(len(self.contours)):
 			rect = cv2.boundingRect(self.contours[i])
 			pt1 = (rect[0],rect[1])
