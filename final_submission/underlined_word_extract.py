@@ -86,21 +86,22 @@ class UnderlinedWordExtract():
 		self.detect_lines()
 		self.dilate_image(kern_N=5,n_iter=2)
 		self.erode_image(kern_N=5,n_iter=2)
-		self.detect_contour(read_text.img_eroded)
+		self.detect_contour(self.img_eroded)
 		self.draw_rect()
 		self.crop_rect(out_img)
 
 #tests
 
-read_text = UnderlinedWordExtract()
-read_text.extract_underlined_text(in_img=sys.argv[1],out_img='underlined.bmp')
-
-plt.subplot(221),plt.imshow(read_text.img_lined,cmap = 'gray')
-plt.title('Lined Image'), plt.xticks([]), plt.yticks([])
-plt.subplot(222),plt.imshow(read_text.img_dilated,cmap = 'gray')
-plt.title('Dilated Image'), plt.xticks([]), plt.yticks([])
-plt.subplot(223),plt.imshow(read_text.img_contoured,cmap = 'gray')
-plt.title('Contoured Image'), plt.xticks([]), plt.yticks([])
-plt.subplot(224),plt.imshow(read_text.img_underlined,cmap = 'gray')
-plt.title('Underlined Image'), plt.xticks([]), plt.yticks([])
-plt.show()
+if __name__ == '__main__':
+	read_text = UnderlinedWordExtract()
+	read_text.extract_underlined_text(in_img=sys.argv[1],out_img='underlined.bmp')
+	
+	plt.subplot(221),plt.imshow(read_text.img_lined,cmap = 'gray')
+	plt.title('Lined Image'), plt.xticks([]), plt.yticks([])
+	plt.subplot(222),plt.imshow(read_text.img_dilated,cmap = 'gray')
+	plt.title('Dilated Image'), plt.xticks([]), plt.yticks([])
+	plt.subplot(223),plt.imshow(read_text.img_contoured,cmap = 'gray')
+	plt.title('Contoured Image'), plt.xticks([]), plt.yticks([])
+	plt.subplot(224),plt.imshow(read_text.img_underlined,cmap = 'gray')
+	plt.title('Underlined Image'), plt.xticks([]), plt.yticks([])
+	plt.show()
