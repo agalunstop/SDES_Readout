@@ -29,15 +29,9 @@ class UnderlinedWordExtract():
 		self.img_lined = np.copy(self.img)
 		self.lines = cv2.HoughLinesP(self.binar,1,np.pi/180,\
 			threshold,minLineLength=minLineLength,maxLineGap=maxLineGap)
-		#print "lines:"
 		i = 0
 		for x1,y1,x2,y2 in self.lines[0]:
 			i = i+1
-		#	print (x1,y1)
-#			cv2.circle(self.img_lined,(x1,y1),i,(0,255,0))
-#			cv2.line(self.img_lined,(x1,y1),(x2,y2),(0,255,0),2)
-
-
 
 	def dilate_image(self,kern_N=5,n_iter=1):
 		'''Dilating the image to form each word as a single contour'''
@@ -79,7 +73,7 @@ class UnderlinedWordExtract():
 		rect = []
 		for i in range(4):
 			rect.append(self.underlined_coord[0][i])
-		self.img_underlined = self.img[rect[1]-5:rect[1]+rect[3]+5,rect[0]:rect[0]+rect[2]+5]
+		self.img_underlined = self.img[rect[1]-5:rect[1]+rect[3],rect[0]:rect[0]+rect[2]+5]
 		cv2.imwrite(out_img,self.img_underlined)
 	def extract_underlined_text(self,in_img='clicked.bmp',out_img='underlined.bmp'):
 		self.read_image_binary(in_img)
@@ -97,7 +91,7 @@ if __name__ == '__main__':
 	read_text.extract_underlined_text(in_img=sys.argv[1],out_img='underlined.bmp')
 	
 	plt.subplot(221),plt.imshow(read_text.img_lined,cmap = 'gray')
-	plt.title('Lined Image'), plt.xticks([]), plt.yticks([])
+	plt.title('Original Image'), plt.xticks([]), plt.yticks([])
 	plt.subplot(222),plt.imshow(read_text.img_dilated,cmap = 'gray')
 	plt.title('Dilated Image'), plt.xticks([]), plt.yticks([])
 	plt.subplot(223),plt.imshow(read_text.img_contoured,cmap = 'gray')

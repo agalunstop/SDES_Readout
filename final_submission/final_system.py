@@ -19,17 +19,21 @@ while True:
 	if (start == '1'):
 
 #Step 1: ##Capture Image
-
-		myReader.ClickPic()  #Image saved in clicked.bmp
+		if sys.argv[2] == 'C':
+			myReader.ClickPic()  #Image saved in clicked.bmp
 
 #Step 2: ##Convert to complete text
 		myReader.ConverttoText(sys.argv[1], "fulltext.txt")
 		
 #Step 3: ##Extract out underline and convert to text with another name
 	#myUnderline.detectunderline("clicked.bmp")
-		myText.extract_underlined_text(sys.argv[1],"underlined.bmp")
+		if sys.argv[2] != 'C':
+			myText.extract_underlined_text(sys.argv[1],"underlined.bmp")
 
-		myReader.ConverttoText("underlined.bmp", "underlined.txt")	
+		if sys.argv[2] == 'C':
+			myReader.ConverttoText(sys.argv[1], "underlined.txt")	
+		else:
+			myReader.ConverttoText("underlined.bmp", "underlined.txt")	
 #myReader.ConverttoText("Extractedpic","underlined.txt")
 
 #Step 4: #Read from the underlined file and pass the string to a variable data as shown

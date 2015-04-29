@@ -13,7 +13,8 @@ class ImagetoText():
 		self.text=text
 		self.image=image
 		self.fo=open(self.text,"w")
-		self.fo.write(pytesseract.image_to_string(Image.open(self.image)))
+		self.fo.write(pytesseract.\
+			image_to_string(Image.open(self.image)))
 		self.fo.close()
 	def __del__(self):
 		os.remove(self.text)
