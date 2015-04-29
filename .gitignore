@@ -1,2 +1,4 @@
 *.bmp
 *.swp
+*.pyc
+*.txt
