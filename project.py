@@ -16,8 +16,8 @@ import sys
 
 ###Code_Segment2##OCR_Neeraj
 #####Opening the image and extracting text and dumping it to myfile.txt
-fo=open("myfile.txt","rw+")
-fo.write(pytesseract.image_to_string(Image.open('text.bmp')))
+fo=open("myfile.txt","w")
+fo.write(pytesseract.image_to_string(Image.open(sys.argv[1])))
 fo.close()
 
 
