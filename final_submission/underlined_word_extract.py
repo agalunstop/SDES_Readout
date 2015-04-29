@@ -74,23 +74,26 @@ class UnderlinedWordExtract():
 #					cv2.circle(self.img_contoured,lb_pt,i+1,(255,0,0))
 					cv2.rectangle(self.img_contoured,pt1,pt2,(100,100,100),thickness=2)
 
-	def crop_rect(self,out_img='image_underlined.png'):
+	def crop_rect(self,out_img='underlined.bmp'):
 		'''Crop from the image the contour which matches the underlines'''
 		rect = []
 		for i in range(4):
 			rect.append(self.underlined_coord[0][i])
 		self.img_underlined = self.img[rect[1]-5:rect[1]+rect[3]+5,rect[0]:rect[0]+rect[2]+5]
 		cv2.imwrite(out_img,self.img_underlined)
+	def extract_underlined_text(self,in_img='clicked.bmp',out_img='underlined.bmp'):
+		self.read_image_binary(in_img)
+		self.detect_lines()
+		self.dilate_image(kern_N=5,n_iter=2)
+		self.erode_image(kern_N=5,n_iter=2)
+		self.detect_contour(read_text.img_eroded)
+		self.draw_rect()
+		self.crop_rect(out_img)
+
 #tests
 
 read_text = UnderlinedWordExtract()
-read_text.read_image_binary(sys.argv[1])
-read_text.detect_lines()
-read_text.dilate_image(kern_N=5,n_iter=2)
-read_text.erode_image(kern_N=5,n_iter=2)
-read_text.detect_contour(read_text.img_eroded)
-read_text.draw_rect()
-read_text.crop_rect()
+read_text.extract_underlined_text(in_img=sys.argv[1],out_img='underlined.bmp')
 
 plt.subplot(221),plt.imshow(read_text.img_lined,cmap = 'gray')
 plt.title('Lined Image'), plt.xticks([]), plt.yticks([])
