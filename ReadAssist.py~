@@ -1,0 +1,51 @@
+#!/usr/env python
+
+
+###Modules to be imported for proper working 
+import os
+import Image
+import pytesseract
+import pyttsx
+import sys
+import cv2
+
+class ReadAssist(click):
+	def __init__(self):
+		self.pygame.camera.init() ##Initialize Camera for Video Capture
+		self.engine.pyttsx.init() ##Initialize Speech Engine
+		self.dictionary=PyDictionary() ## Get a dictionary object
+	def ClickPic(self):
+		
+	def ConverttoText(self, image):
+		pass
+
+	def ReadText(self,text):
+		pass
+
+	def GetImage(self,Text):
+		pass
+
+	def GetWiki( self, text):
+		pass
+	
+	def ShowImage(self, image):
+		pass
+
+	def GetMeaning(self, text):
+		pass
+
+	def GetTranslate(self,text):
+		pass
+
+	def __del__(self): ##destructor of class : Clean up the object and the files generated
+		pass
+
+
+
+
+
+
+
+		
+		
+
