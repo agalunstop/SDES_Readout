@@ -4,7 +4,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 class UnderlinedWordExtract():
-	'''class containing modules to extract underlined word from an image'''
+	'''class containing methods to extract underlined word from an image'''
 	def __init__(self):
 		pass
 	def read_image_binary(self,in_img,thresh_val=100):

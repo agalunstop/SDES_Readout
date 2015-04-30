@@ -1,5 +1,21 @@
-## Speak out full text or underlined text or search underlined text from existing image:
+This is an API to read text from an image and
+do the following based on user specified options:
+1. Speak out complete text from the image.
+2. Speak out meaning of the underlined text in the image.
+3. Speak out wiki search of the underlined word.
+4. Display google image search 4 results of the underlined text
 
+setup.sh should be sourced to install the required packages before 
+running the program.
+
+User can specify to click the image of the text using laptop inbuilt camera (C)
+or take the imput from an already existing image (NC). Example usage are as follows:
+
+## Speak out full text or underlined text or search underlined text from existing image:
 python code/ReadingAssistant.py test_images/test_image_4.png NC
 ## Click an image using webcam and speak out full text or underlined text or search underlined text from that:
 python code/ReadingAssistant.py test_images/test_image_4.png C
+
+Documentation can be read to find more about the interesting options.
+Many configurable options are available to the user. Please feel free 
+to modify and use the code as per your convenience.

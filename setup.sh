@@ -8,3 +8,4 @@ sudo apt-get install pyttsx
 sudo apt-get install python-opencv
 sudo pip install PyDictionary
 sudo pip install wikipedia
+sudo pip install simplejson
