@@ -1,0 +1,5 @@
+## Speak out full text or underlined text or search underlined text from existing image:
+
+python code/ReadingAssistant.py test_images/test_image_4.png NC
+## Click an image using webcam and speak out full text or underlined text or search underlined text from that:
+python code/ReadingAssistant.py test_images/test_image_4.png C
